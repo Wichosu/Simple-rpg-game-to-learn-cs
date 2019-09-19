@@ -16,5 +16,10 @@ namespace SuperAdventure
         {
             InitializeComponent();
         }
+
+        private void SuperAdventure_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
