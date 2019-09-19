@@ -25,9 +25,9 @@ namespace SuperAdventure
         private void button1_Click(object sender, EventArgs e)
         {
             lblGold.Text = "123";
-            lblHitPoints = "100";
-            lblExperience = "0";
-            lblLevel = "17";
+            lblHitPoints.Text = "100";
+            lblExperience.Text = "0";
+            lblLevel.Text = "17";
         }
     }
 }
