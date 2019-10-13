@@ -12,4 +12,9 @@ namespace Engine
         public string Name { get; set; }
         public string NamePlural { get; set; }
     }
+
+    public Item(int ID, string name, string namePlural)
+    {
+        ID
+    }
 }
