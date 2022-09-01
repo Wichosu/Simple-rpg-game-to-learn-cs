@@ -27,22 +27,22 @@ const fields = document.querySelectorAll('#field');
 const field = (Element, Switcher) => {
   const switcher = Object.create(Switcher);
   const props = {
-    element: Object.create(Element),
+    element: Element,
     checked: false
   };
-
-  return {
-    log() {
-      console.log(props.element);
-    },
-    draw() {
-      props.checked = switcher.change(props.checked)
-    }
+  
+  const log = () => {
+    console.log(props.element);
   }
+
+  const draw = () => {
+    props.checked = switcher.change(props.checked)
+    props.checked? props.element.textContent = 'X' : props.element.textContent = '';
+  }
+
+  props.element.addEventListener('click', draw);
+  props.element.addEventListener('click', log);
 }
 
 const field1 = field(fields[0], switcher)
-
-field1.log()
-
 
