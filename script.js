@@ -1,14 +1,29 @@
 /*Factory function key idea
 Create objects for what they do not what they are*/
 
-/*field = switcher + scratch + clickable
+/*field = switcher + scratch  + figure
 rows = winCondition
 cols = winCondiction
 diagonals = winCondition*/
 
 const switcher = {
-  change(status) {
+  changeStatus(status) {
     return !status
+  }
+}
+
+const figure = {
+  figure: '',
+  getFigure() {
+    return this.figure;
+  },
+  setFigure(value) {
+    if(value === 'X') {
+      this.figure = 'O';
+    }
+    else{
+      this.figure = 'X';
+    }
   }
 }
 
@@ -28,21 +43,24 @@ const field = (Element, Switcher) => {
   const switcher = Object.create(Switcher);
   const props = {
     element: Element,
-    checked: false
+    checked: false,
   };
   
   const log = () => {
-    console.log(props.element);
+    console.log(figure.getFigure())
   }
 
   const draw = () => {
-    props.checked = switcher.change(props.checked)
-    props.checked? props.element.textContent = 'X' : props.element.textContent = '';
+    if(!props.checked){
+      props.checked = switcher.changeStatus(props.checked);
+      figure.setFigure(figure.getFigure())
+      props.element.textContent = figure.getFigure()
+    }
   }
 
   props.element.addEventListener('click', draw);
   props.element.addEventListener('click', log);
 }
 
-const field1 = field(fields[0], switcher)
+fields.forEach(element => element = field(element, switcher))
 
